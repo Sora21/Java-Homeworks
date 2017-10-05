@@ -1,5 +1,3 @@
-package homework2;
-
 public interface IntTree { // contratto degli alberi di interi
 	
 	/* restituisce il valore associato alla radice */
