@@ -1,5 +1,4 @@
-package homework2;
-
+/* Test sul corretto funzionamento del programma */
 public class TestIntTree {
 
 		public static void main(String[] args) throws NoSuchTreeException {
@@ -25,5 +24,4 @@ public class TestIntTree {
 			t.followPath(path); // lancia NoSuchTreeException*/				
 		}
 	
-
 }
