@@ -1,47 +1,41 @@
-package homework3;
+/**
+ * Created by pietrocenciarelli on 31/05/17.
+ */
+import java.util.*;
 
-import java.util.LinkedList;
-//import homework3.MyNetwork.Arco;
+public class TestNetwork {
+    public static void main(String[] args) throws NoSuchNodeException, NoSuchPathException {
 
+        // Test per l'homework 3. Deve stampare: 0 1 2 8 9
 
-public class TestMyNetwork {
+        Integer[] Nodes = new Integer[10];
+        MyNetwork<Integer> net = new MyNetwork<Integer>();
 
-	public static <T> void main(String[] args) throws NoSuchNodeException, NoSuchPathException {
-		LinkedList<T> vertici = new LinkedList<T>();
-		
-		T nodo1 = (T) new Object();	
-		T nodo2 = (T) new Object();
-		T nodo3 = (T) new Object();	
-		T nodo4 = (T) new Object();
-		//T nodo5 = (T) new Object();
-		//T nodo6 = (T) new Object();
-		
-		//int nodo1 = 1;	vertici.add(nodo1); 
-		//int nodo2 = 2;	vertici.add(nodo2);
-		//int nodo3 = 3;	vertici.add(nodo3);
-		//int nodo4 = 4;	vertici.add(nodo4);
-		//int nodo5 = 5;	vertici.add(nodo5);
-		//int nodo6 = 6;	vertici.add(nodo6);
-		
-		MyNetwork<T> grafo = new MyNetwork<T>(vertici);
-		
-		grafo.addNode(nodo1); grafo.addNode(nodo2); grafo.addNode(nodo3); grafo.addNode(nodo4);
-		
-		grafo.addEdge(nodo1, nodo2); grafo.addEdge(nodo1, nodo3);
-		grafo.addEdge(nodo2, nodo3); grafo.addEdge(nodo3, nodo4); 
-		grafo.addEdge(nodo1, nodo3); //arco duplicato caso da considerare
-		
-		grafo.setSource(nodo1); grafo.setTarget(nodo4);
-		
-		System.out.println("Source = " + grafo.source());
-		System.out.println("Nodo2 = " + nodo2);
-		System.out.println("Nodo3 = " + nodo3);
-		System.out.println("Target = " + grafo.target());
-		
-		//grafo.setTarget(nodo1);
-		System.out.println(grafo.shortestPath().toString());	//OK
-		
-		
-			
-	}
+        for (int i = 0; i < 10; i++) {
+            Nodes[i] = new Integer(i);
+            net.addNode(Nodes[i]);
+        }
+
+        net.setSource(Nodes[0]);
+        net.setTarget(Nodes[9]);
+
+        net.addEdge(Nodes[0], Nodes[0]);
+        net.addEdge(Nodes[0], Nodes[1]);
+        net.addEdge(Nodes[1], Nodes[2]);
+        net.addEdge(Nodes[2], Nodes[1]);
+        net.addEdge(Nodes[2], Nodes[3]);
+        net.addEdge(Nodes[3], Nodes[4]);
+        net.addEdge(Nodes[2], Nodes[5]);
+        net.addEdge(Nodes[5], Nodes[6]);
+        net.addEdge(Nodes[6], Nodes[4]);
+        net.addEdge(Nodes[2], Nodes[7]);
+        net.addEdge(Nodes[2], Nodes[8]);
+        net.addEdge(Nodes[8], Nodes[9]);
+
+        List<Integer> result = net.shortestPath();
+
+        for (int i = 0; i < result.size(); i++)
+            System.out.print(result.get(i) + " ");
+        System.out.println();
+    }
 }
