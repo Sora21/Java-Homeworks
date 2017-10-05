@@ -1,3 +1,6 @@
+/**
+ * Created by pietrocenciarelli.
+ */
 /* Test sul corretto funzionamento del programma */
 public class TestIntTree {
 
