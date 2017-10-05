@@ -1,5 +1,3 @@
-package homework3;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -71,7 +69,7 @@ public class MyNetwork<T> implements Network<T>  {
 	
 	
 	/* (non-Javadoc)
-	 * restituisce il nodo sorgente di this (null se la sorgente non e’ settata)  */
+	 * restituisce il nodo sorgente di this (null se la sorgente non eâ€™ settata)  */
 	public T source() {
 		if (source == null)
 			return null;
@@ -81,7 +79,7 @@ public class MyNetwork<T> implements Network<T>  {
 
 	
 	/* (non-Javadoc)
-	 * restituisce il nodo destinarione di this (null se la sorgente non e’ settata)  */
+	 * restituisce il nodo destinarione di this (null se la sorgente non eâ€™ settata)  */
 	public T target() {
 		if (target == null)
 			return null;
@@ -92,9 +90,9 @@ public class MyNetwork<T> implements Network<T>  {
 	
 	/* (non-Javadoc)
 	 * setta la sorgente della rete a newsource
-	 * @throws NoSuchNodeException se newsource non e’ un nodo della rete	 */
+	 * @throws NoSuchNodeException se newsource non eâ€™ un nodo della rete	 */
 	public void setSource(T newsource) throws NoSuchNodeException {
-		if (!vertici.contains(newsource))			// se newsource non è contenuto in vertici
+		if (!vertici.contains(newsource))			// se newsource non Ã¨ contenuto in vertici
 			throw new NoSuchNodeException();
 		
 		this.source = newsource;
@@ -103,9 +101,9 @@ public class MyNetwork<T> implements Network<T>  {
 	
 	/* (non-Javadoc)
 	 * setta la destinazione della rete a newsource
-	 * @throws NoSuchNodeException se newtarget non e’ un nodo della rete	 */
+	 * @throws NoSuchNodeException se newtarget non eâ€™ un nodo della rete	 */
 	public void setTarget(T newtarget) throws NoSuchNodeException {
-		if (!vertici.contains(newtarget))			// se newtarget non è contenuto in vertici
+		if (!vertici.contains(newtarget))			// se newtarget non Ã¨ contenuto in vertici
 			throw new NoSuchNodeException();
 		
 		this.target = newtarget;
@@ -114,9 +112,9 @@ public class MyNetwork<T> implements Network<T>  {
 	
 	/* (non-Javadoc)
 	 * aggiunge a this un nuovo nodo v
-	 * non fa nulla se v e’ gia’ un nodo della rete	 */
+	 * non fa nulla se v eâ€™ giaâ€™ un nodo della rete	 */
 	public void addNode(T v) {
-		if (!vertici.contains(v))			// se v non è già contenuto in vertici
+		if (!vertici.contains(v))			// se v non Ã¨ giÃ  contenuto in vertici
 			this.vertici.add(v);
 	}
 
@@ -129,17 +127,17 @@ public class MyNetwork<T> implements Network<T>  {
 			throw new NoSuchNodeException();
 				
 		Arco nuovo = new Arco(p, a);
-		if (!archi.contains(nuovo))						// lo aggiungo solo se l'arco non è duplicato
+		if (!archi.contains(nuovo))						// lo aggiungo solo se l'arco non Ã¨ duplicato
 			this.archi.add(nuovo);
 	}
 
 	
 	/* (non-Javadoc)
-	 * Servendosi della BFS, visita la rete trovando il cammino più breve tra source e target
+	 * Servendosi della BFS, visita la rete trovando il cammino piÃ¹ breve tra source e target
 	 * per ogni nodo in percorso, esiste uno o piu' archi che li collegano
 	 * @return percorso, una lista minimale <t1, ..., tn> di nodi di tipo <T> ottenuta traite BFS
 	 * @throws NoSuchPathException se source o target non sono settati
-	 * @throws NoSuchPathException se non c’e’ path che collega i nodi source e target */
+	 * @throws NoSuchPathException se non câ€™eâ€™ path che collega i nodi source e target */
 	public List<T> shortestPath() throws NoSuchPathException {		
 		if (source == null || target == null)			
 			throw new NoSuchPathException();
