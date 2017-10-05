@@ -1,19 +1,17 @@
-package homework2;
-
 import java.util.ArrayList;
 
 
 public class MyIntTree implements IntTree{
 		
 	private ArrayList<MyIntTree> tree = new ArrayList<MyIntTree>();
-	private int valore;						// il valore del nodo corrente
+	private int valore;			// il valore del nodo corrente
 	
 	
-	private int contato = 0;				// usato nella funzione di conteggio nodes(), indica se il nodo e' stato gia' contato o meno
-	private boolean visitato = false;		// usato nella funzione di conteggio nodes(), indica se il nodo e' stato gia' visitato in precedenza 
+	private int contato = 0;		// usato nella funzione di conteggio nodes(), indica se il nodo e' stato gia' contato o meno
+	private boolean visitato = false;	// usato nella funzione di conteggio nodes(), indica se il nodo e' stato gia' visitato in precedenza 
 	
-	private int height = 0;				// usato nella funzione height(), indica la lunghezza del cammino piu' lungo corrente dalla radice a una foglia
-	private int maxHeight = 0;			// usato nella funzione height(), indica la lunghezza del cammino piu' lungo dalla radice a una foglia
+	private int height = 0;			// usato nella funzione height(), indica la lunghezza del cammino piu' lungo corrente dalla radice a una foglia
+	private int maxHeight = 0;		// usato nella funzione height(), indica la lunghezza del cammino piu' lungo dalla radice a una foglia
 	
 	
 	/**Un oggetto @code MyIntTree rappresenta un albero n-ario di interi
@@ -41,14 +39,14 @@ public class MyIntTree implements IntTree{
 	}
 
 	/* (non-Javadoc)
-	 * restituisce il numero di figli di this (0 se e’ una foglia)	 */
+	 * restituisce il numero di figli di this, 0 se eâ€™ una foglia	 */
 	public int childrenNumber() {
 		return this.tree.size();	
 	}
 
 	
 	/* (non-Javadoc)
-	 * restituisce il numero di nodi di this; 1 se this e' una foglia	 */
+	 * restituisce il numero di nodi di this, 1 se this e' una foglia	 */
 	public int nodes() {					
 		for (int i = 0; i < getTree(this).size(); i++) {			// in questo for ripristino le variabili da eventuali esecuzioni precedenti 
 			getTree(this).get(i).visitato = false;					 
@@ -67,7 +65,7 @@ public class MyIntTree implements IntTree{
 
 		for(int i = 0; i < getTree(this).size(); i++){
 			int altezza = this.height + getTree(this).get(i).height() + 1; 			// svolgo una chiamata ricorsiva su height() che quando 
-																					// ritorna perchè trova una foglia somma 1 ad altezza
+																					// ritorna perchÃ¨ trova una foglia somma 1 ad altezza
 			
 			if (altezza > maxHeight) 												// al termine della ricorsivita' su un nodo controllo se
 				maxHeight = altezza;												// l'altezza corrente e' la piu' alta
@@ -78,7 +76,7 @@ public class MyIntTree implements IntTree{
 
 	
 	/* (non-Javadoc)
-	 * t1.equals(t2) e’ true se t1 e t2 sono isomorfi, ovvero indistinguibili ad un osservatore esterno	 */
+	 * t1.equals(t2) eâ€™ true se t1 e t2 sono isomorfi, ovvero indistinguibili ad un osservatore esterno	 */
 	public boolean equals(IntTree t) {
 		if (this.childrenNumber() != t.childrenNumber()) 			// controllo sul numero dei figli dei 2 nodi
 			return false;		
@@ -120,8 +118,8 @@ public class MyIntTree implements IntTree{
 
 	
 	/* (non-Javadoc)
-	 * stampa la sequenza di valori associati ai nodi dell’albero corrispondente
-	 * ad una visita in profondita’ (depth-first) pre-order	 */
+	 * stampa la sequenza di valori associati ai nodi dellâ€™albero corrispondente
+	 * ad una visita in profonditaâ€™ (depth-first) pre-order	 */
 	public void visit() {
 		printDFS();												// visita DFS pre-order ricorsiva
 		System.out.println();									// newline a fine visita
